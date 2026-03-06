@@ -82,6 +82,20 @@ void WINRT_ProcessAcceleratorKeyActivated(Windows::UI::Core::AcceleratorKeyEvent
     SDL_SendKeyboardKey(0, SDL_DEFAULT_KEYBOARD_ID, rawcode, code, state);
 }
 
+void WINRT_ProcessKeyDownEvent(Windows::UI::Core::KeyEventArgs ^ args)
+{
+    Uint16 rawcode = 0;
+    SDL_Scancode code = WINRT_TranslateKeycode(args->VirtualKey, args->KeyStatus, &rawcode);
+    SDL_SendKeyboardKey(0, SDL_GLOBAL_KEYBOARD_ID, rawcode, code, true);
+}
+
+void WINRT_ProcessKeyUpEvent(Windows::UI::Core::KeyEventArgs ^ args)
+{
+    Uint16 rawcode = 0;
+    SDL_Scancode code = WINRT_TranslateKeycode(args->VirtualKey, args->KeyStatus, &rawcode);
+    SDL_SendKeyboardKey(0, SDL_GLOBAL_KEYBOARD_ID, rawcode, code, false);
+}
+
 void WINRT_ProcessCharacterReceivedEvent(SDL_Window *window, Windows::UI::Core::CharacterReceivedEventArgs ^ args)
 {
     if (!window) {

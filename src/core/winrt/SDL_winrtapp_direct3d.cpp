@@ -291,6 +291,12 @@ void SDL_WinRTApp::SetWindow(CoreWindow ^ window)
         ref new TypedEventHandler<MouseDevice ^, MouseEventArgs ^>(this, &SDL_WinRTApp::OnMouseMoved);
 #endif
 
+    window->KeyDown +=
+	ref new TypedEventHandler<CoreWindow ^, KeyEventArgs ^>(this, &SDL_WinRTApp::OnKeyDown);
+
+    window->KeyUp +=
+	ref new TypedEventHandler<CoreWindow ^, KeyEventArgs ^>(this, &SDL_WinRTApp::OnKeyUp);
+
     window->Dispatcher->AcceleratorKeyActivated +=
         ref new TypedEventHandler<CoreDispatcher ^, AcceleratorKeyEventArgs ^>(this, &SDL_WinRTApp::OnAcceleratorKeyActivated);
 
@@ -771,6 +777,16 @@ void SDL_WinRTApp::OnPointerWheelChanged(CoreWindow ^ sender, PointerEventArgs ^
 void SDL_WinRTApp::OnMouseMoved(MouseDevice ^ mouseDevice, MouseEventArgs ^ args)
 {
     WINRT_ProcessMouseMovedEvent(WINRT_GlobalSDLWindow, args);
+}
+
+void SDL_WinRTApp::OnKeyDown(Windows::UI::Core::CoreWindow ^ sender, Windows::UI::Core::KeyEventArgs ^ args)
+{
+    WINRT_ProcessKeyDownEvent(args);
+}
+
+void SDL_WinRTApp::OnKeyUp(Windows::UI::Core::CoreWindow ^ sender, Windows::UI::Core::KeyEventArgs ^ args)
+{
+    WINRT_ProcessKeyUpEvent(args);
 }
 
 void SDL_WinRTApp::OnAcceleratorKeyActivated(Windows::UI::Core::CoreDispatcher ^ sender, Windows::UI::Core::AcceleratorKeyEventArgs ^ args)
