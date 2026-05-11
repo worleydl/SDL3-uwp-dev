@@ -37,13 +37,13 @@
     <Filter Include="main\winrt">
       <UniqueIdentifier>{00006680a11742e2b280c6453be80000}</UniqueIdentifier>
     </Filter>
+    <Filter Include="dialog\winrt">
+      <UniqueIdentifier>{77015944-34d7-43ca-962b-c894deb2dd5e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\SDL3\SDL_begin_code.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\SDL3\SDL_camera.h">
-      <Filter>API Headers</Filter>
     </ClInclude>
     <ClInclude Include="..\include\SDL3\SDL_close_code.h">
       <Filter>Header Files</Filter>
@@ -327,7 +327,6 @@
     <ClInclude Include="..\src\render\opengles2\SDL_shaders_gles2.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-
     <ClInclude Include="..\src\render\SDL_sysrender.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -440,9 +439,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\video\SDL_sysvideo.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\video\SDL_sysvideocapture.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\video\winrt\SDL_winrtevents_c.h">
@@ -611,9 +607,6 @@
       <Filter>filesystem\windows</Filter>
     </ClCompile>
     <ClCompile Include="..\src\filesystem\winrt\SDL_sysfilesystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\file\SDL_iostream.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\haptic\dummy\SDL_syshaptic.c">
@@ -922,9 +915,6 @@
     <ClCompile Include="..\src\video\SDL_yuv.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\video\yuv2rgb\yuv_rgb.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\render\direct3d11\SDL_shaders_d3d11.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -950,6 +940,31 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\video\SDL_clipboard_c.h" />
+    <ClInclude Include="..\include\SDL3\SDL_camera.h" />
+    <ClInclude Include="..\include\SDL3\SDL_gamepad.h" />
+    <ClInclude Include="..\include\SDL3\SDL_gpu.h" />
+    <ClInclude Include="..\include\SDL3\SDL_properties.h" />
+    <ClInclude Include="..\include\SDL3\SDL_storage.h" />
+    <ClInclude Include="..\include\SDL3\SDL_time.h" />
+    <ClInclude Include="..\include\SDL3\SDL_tray.h" />
+    <ClInclude Include="..\src\events\SDL_categories_c.h" />
+    <ClInclude Include="..\src\gpu\SDL_sysgpu.h" />
+    <ClInclude Include="..\src\io\SDL_iostream_c.h" />
+    <ClInclude Include="..\src\io\SDL_sysasyncio.h" />
+    <ClInclude Include="..\src\render\opengl\SDL_glfuncs.h" />
+    <ClInclude Include="..\src\render\opengl\SDL_shaders_gl.h" />
+    <ClInclude Include="..\src\tray\SDL_tray_utils.h" />
+    <ClInclude Include="..\src\video\SDL_stb_c.h" />
+    <ClInclude Include="..\src\video\SDL_sysvidocapture.h" />
+    <ClInclude Include="..\src\video\windows\SDL_windowsopengl.h" />
+    <ClInclude Include="..\src\video\yuv2rgb\yuv_rgb_common.h" />
+    <ClInclude Include="..\src\video\yuv2rgb\yuv_rgb_internal.h" />
+    <ClInclude Include="..\src\video\yuv2rgb\yuv_rgb_lsx.h" />
+    <ClInclude Include="..\src\video\yuv2rgb\yuv_rgb_lsx_func.h" />
+    <ClInclude Include="..\src\video\yuv2rgb\yuv_rgb_sse.h" />
+    <ClInclude Include="..\src\video\yuv2rgb\yuv_rgb_sse_func.h" />
+    <ClInclude Include="..\src\video\yuv2rgb\yuv_rgb_std.h" />
+    <ClInclude Include="..\src\video\yuv2rgb\yuv_rgb_std_func.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\joystick\windows\SDL_windows_gaming_input.c">
@@ -961,14 +976,43 @@
     <ClCompile Include="..\src\stdlib\SDL_mslibc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <MASM Include="..\src\stdlib\SDL_mslibc_x64.masm">
-      <Filter>stdlib</Filter>
-    </MASM>
     <ClCompile Include="..\src\core\windows\pch.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\core\windows\pch_cpp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\events\SDL_categories.c" />
+    <ClCompile Include="..\src\events\SDL_eventwatch.c" />
+    <ClCompile Include="..\src\gpu\SDL_gpu.c " />
+    <ClCompile Include="..\src\gpu\d3d12\SDL_gpu_d3d12.c " />
+    <ClCompile Include="..\src\io\generic\SDL_asyncio_generic.c" />
+    <ClCompile Include="..\src\io\SDL_asyncio.c" />
+    <ClCompile Include="..\src\io\SDL_iostream.c" />
+    <ClCompile Include="..\src\io\windows\SDL_asyncio_windows_ioring.c" />
+    <ClCompile Include="..\src\render\opengl\SDL_render_gl.c" />
+    <ClCompile Include="..\src\render\opengl\SDL_shaders_gl.c" />
+    <ClCompile Include="..\src\stdlib\SDL_murmur3.c" />
+    <ClCompile Include="..\src\storage\generic\SDL_genericstorage.c" />
+    <ClCompile Include="..\src\storage\SDL_storage.c" />
+    <ClCompile Include="..\src\tray\dummy\SDL_tray.c" />
+    <ClCompile Include="..\src\tray\SDL_tray_utils.c" />
+    <ClCompile Include="..\src\video\SDL_stb.c" />
+    <ClCompile Include="..\src\video\windows\SDL_windowsopengl.c" />
+    <ClCompile Include="..\src\video\yuv2rgb\yuv_rgb_lsx.c" />
+    <ClCompile Include="..\src\video\yuv2rgb\yuv_rgb_sse.c" />
+    <ClCompile Include="..\src\video\yuv2rgb\yuv_rgb_std.c" />
+    <ClCompile Include="..\src\dialog\SDL_dialog.c">
+      <Filter>dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\dialog\winrt\SDL_winrtdialog.c">
+      <Filter>dialog\winrt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\dialog\winrt\SDL_winrt_pickers.cpp">
+      <Filter>dialog\winrt</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="..\src\stdlib\SDL_mslibc_x64.masm" />
   </ItemGroup>
 </Project>
