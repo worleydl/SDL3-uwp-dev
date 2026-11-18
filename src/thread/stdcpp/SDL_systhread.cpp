@@ -36,7 +36,11 @@ extern "C" {
 
 static void RunThread(void *args)
 {
-    SDL_RunThread((SDL_Thread *)args);
+    // DLW: Modified to init threadid otherwise mgmt thread can't identify itself and deadlocks
+    SDL_Thread *thread = (SDL_Thread *)args;
+
+    thread->threadid = SDL_GetCurrentThreadID();
+    SDL_RunThread(thread);
 }
 
 extern "C"
