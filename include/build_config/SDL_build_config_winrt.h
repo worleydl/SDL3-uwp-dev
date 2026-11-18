@@ -209,7 +209,7 @@
 
 #define SDL_VIDEO_OPENGL     1
 #define SDL_VIDEO_RENDER_OGL 1
-#define SDL_VIDEO_OPENGL_WGL 1
+#define SDL_VIDEO_OPENGL_EGL 1
 
 #define __XBOXSERIES__                  1
 #define SDL_VIDEO_DRIVER_KEYBOARD_WINRT 1
